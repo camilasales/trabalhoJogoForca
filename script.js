@@ -1,47 +1,54 @@
-let frutas = ["m","u","r","i","c","i"];
-let letra = document.querySelector('#label');
-let palavra = document.querySelector('.palavra');
-let click = document.querySelector("#butao");
-let m = document.querySelector("#m");
-let u = document.querySelector("#u");
-let r = document.querySelector("#r");
-let i = document.querySelector("#i");
-let c = document.querySelector("#c");
-let ii = document.querySelector("#ii");
+let palavras = {frutas:['BANANA', 'MURICI', 'CEREJA', 'UVA'], dica: 'fruta'};
+let palavraSeparada = [];
+let botaoComecar = document.querySelector(".botao_comecar");
+let dicaH3 = document.querySelector("h3");
+let digitoLetra = document.querySelector(".digito_letra");
+let botao_ok = document.querySelector(".botao_ok");
 
-function apertar(){
-    
 
-    if (label.value == frutas[0]) {
-        alert("vc acertou a palavra");
-        m.innerHTML += frutas[0];
-        
-        
-    }
-    else if(label.value == frutas[1]){
-        alert("vc acertou a palavra");
-        u.innerHTML += frutas[1]();   
-    }
-    else if(label.value == frutas[2]){   
-        alert("vc acertou a palavra");
-        r.innerHTML += frutas[2];  
-    }
-    else if(label.value == frutas[3]){
-        alert("vc acertou a palavra");
-        i.innerHTML += frutas[3];  
-    }
-    else if(label.value == frutas[4]){ 
-        alert("vc acertou a palavra");
-        c.innerHTML += frutas[4];  
-    }
-    else if(label.value == frutas[5]){
-        alert("vc acertou a palavra ");  
-        ii.innerHTML += frutas[5];   
-    }
+function sortearPalavra(){
+    let qtde = palavras.frutas.length-1;
+    let sorteio = Math.floor(Math.random()*qtde);
+    let palavraSorteada = palavras.frutas[sorteio];
+    return palavraSorteada;
+}
 
-    else{
-        alert("vc errou a palavra");    
+function separarPalavra(){
+    palavraSeparada = sortearPalavra().split("");
+    return palavraSeparada;
+}
+
+// function tracos(t){
+//     let paragrafos = document.querySelectorAll("p").style.display="none";
+//     paragrafos.innerHTML = "";
+//     for (let i=0; i<t; i++){
+//         paragrafos = document.querySelector("#letra"+i).style.display="inline-block";
+//     }
+// }
+
+function jogar(){
+    let traco;
+    let repeticaoLetra;
+    let letra = digitoLetra.value;
+    digitoLetra.value="";
+    pesquisa=palavraSeparada.match(letra);
+    while(pesquisa!=null){
+        repeticaoLetra = palavra.search(letra);
+        traco = document.querySelector("p"+repeticaoLetra).value=letra;
     }
 }
 
-click.onclick = apertar;
+function comecar(){
+    sortearPalavra();
+    separarPalavra()
+    let sep = palavraSeparada.length;
+    tracos(sep);
+    dicaH3.innerHTML="Dica: " + palavras.dica;
+    let tracos = sortearPalavra().split("__ ");
+    console.log(tracos);
+
+
+}
+botaoComecar.onclick = comecar;
+
+
