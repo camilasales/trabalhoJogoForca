@@ -1,37 +1,46 @@
 let palavras = {frutas:['BANANA', 'MURICI', 'CEREJA', 'UVA'], dica: 'fruta'};
 let palavraSeparada = [];
-let botaoComecar = document.querySelector(".botao_comecar");
+let botaoComecar = document.querySelector("#botao_comecar");
 let dicaH3 = document.querySelector("h3");
-let digitoLetra = document.querySelector(".digito_letra");
-let botao_ok = document.querySelector(".botao_ok");
+let digitoLetra = document.querySelector("#digito_letra");
+let botao_ok = document.querySelector("#botao_ok");
+let paragrafos = document.querySelectorAll(".letra");
 
+for(let i=0; i<7; i++){
+    paragrafos[i].innerHTML="";
+    paragrafos[i].style.display="none";
+}
 
 function sortearPalavra(){
-    let qtde = palavras.frutas.length-1;
-    let sorteio = Math.floor(Math.random()*qtde);
+    let tamanhoPalavra = palavras.frutas.length;
+    let sorteio = Math.floor(Math.random()*tamanhoPalavra);
     let palavraSorteada = palavras.frutas[sorteio];
     return palavraSorteada;
 }
 
 function separarPalavra(){
+    palavraSeparada = [];
+    sortearPalavra();
     palavraSeparada = sortearPalavra().split("");
     return palavraSeparada;
 }
 
-// function tracos(t){
-//     let paragrafos = document.querySelectorAll("p").style.display="none";
-//     paragrafos.innerHTML = "";
-//     for (let i=0; i<t; i++){
-//         paragrafos = document.querySelector("#letra"+i).style.display="inline-block";
-//     }
-// }
+function tracos(t){
+    for(let i=0; i<7; i++){
+        paragrafos[i].innerHTML="";
+        paragrafos[i].style.display="none";
+    }
 
-function jogar(){
-    let traco;
+    for (let i=0; i<t; i++){
+        paragrafos[i].style.display="inline-block";
+        paragrafos[i].innerHTML="__";
+    }
+}
+
+function ok(){
     let repeticaoLetra;
     let letra = digitoLetra.value;
-    digitoLetra.value="";
-    pesquisa=palavraSeparada.match(letra);
+    let pesquisa = palavraSeparada.match(letra);
     while(pesquisa!=null){
         repeticaoLetra = palavra.search(letra);
         traco = document.querySelector("p"+repeticaoLetra).value=letra;
@@ -40,14 +49,12 @@ function jogar(){
 
 function comecar(){
     sortearPalavra();
-    separarPalavra()
-    let sep = palavraSeparada.length;
-    tracos(sep);
+    separarPalavra();
+    let traco = palavraSeparada.length;
+    tracos(traco);
+    console.log(traco);  
     dicaH3.innerHTML="Dica: " + palavras.dica;
-    let tracos = sortearPalavra().split("__ ");
-    console.log(tracos);
-
-
+    
 }
 botaoComecar.onclick = comecar;
 
