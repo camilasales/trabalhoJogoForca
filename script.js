@@ -3,7 +3,7 @@ let palavraSeparada = [];
 let botaoComecar = document.querySelector("#botao_comecar");
 let dicaH3 = document.querySelector("h3");
 let digitoLetra = document.querySelector("#digito_letra");
-let botao_ok = document.querySelector("#botao_ok");
+let botaoOk = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
 
 let morto = [
@@ -51,12 +51,18 @@ function tracos(t){
 }
 
 function ok(){
-    let repeticaoLetra;
+    let numLetra;
+    let subs;
     let letra = digitoLetra.value;
-    let pesquisa = palavraSeparada.match(letra);
-    while(pesquisa!=null){
-        repeticaoLetra = palavra.search(letra);
-        traco = document.querySelector("p"+repeticaoLetra).value=letra;
+    // let pesquisa = palavraSeparada.match(letra);
+    numLetra = palavraSeparada.search(letra);
+    cont=0
+    while(cont <= palavraSeparada.length ){
+        subs = document.querySelector("num0").id = "num"+cony;
+        palavraSeparada = palavraSeparada.replace(letra, "0");
+        paragrafos[letra];
+        cont+=1;
+
     }
 }
 
@@ -64,8 +70,7 @@ function comecar(){
     sortearPalavra();
     separarPalavra();
     let traco = palavraSeparada.length;
-    tracos(traco);
-    console.log(traco);  
+    tracos(traco); 
     dicaH3.innerHTML="Dica: " + palavras.dica;
     
 }
@@ -76,8 +81,9 @@ function completarLacunas(){
     }
 }
 
-function forca(){
-    while
-}
+// function forca(){
+//     while
+// }
 
 botaoComecar.onclick = comecar;
+botaoOk.onclick = ok;

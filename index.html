@@ -9,27 +9,33 @@
     <title>Document</title>
 </head>
 <body>
+    <section class="titulo">
+            <h1>Jogo da forca</h1>
+    </section>
     <section>
-        <h1>Jogo da forca</h1>
         <div class="tracinhos">
+            <p class="letra" id="num0">-</p>
+            <p class="letra" id="num1">-</p>
+            <p class="letra" id="num2">-</p>
+            <p class="letra" id="num3">-</p>
+            <p class="letra" id="num4">-</p>
+            <p class="letra" id="num5">-</p>
+            <p class="letra" id="num6">-</p>
+        </div>
+        <div>
             <h3></h3>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
-            <p class="letra">-</p>
         </div>
     </section>
        
-    <section>
-        <input id='botao_comecar' type="button" value="começar">
-        <input id='digito_letra' type="text" placeholder="digite uma letra">
-        <input id='botao_ok' type="button" value="ok">
+    <section class="dados">
+        <input id='botao_comecar'  type="button" value="começar">
+        <div>
+            <input id='digito_letra' type="text" placeholder="digite uma letra">
+            <input id='botao_ok' type="submit" value="ok">
+        </div>
     </section>
     <aside>
-        <img src="forca.png" alt="">
+        <img src="img/forca.png" alt="">
     </aside>
 </body>
 </html>
