@@ -35,6 +35,7 @@ function separarPalavra(){
     palavraSeparada = [];
     sortearPalavra();
     palavraSeparada = sortearPalavra().split("");
+    console.log(palavraSeparada);
     return palavraSeparada;
 }
 
@@ -63,21 +64,28 @@ function ok(){
     //     paragrafos[letra];
     //     cont+=1;
     // }
-    for (let i=0; i<palavraSeparada.length; i++){
-        paragrafos[i].style.display="inline-block";
-        paragrafos[i].innerHTML=palavraSeparada[i];
+    for (let i in palavraSeparada){
+        console.log("foi")
+        if(digitoLetra.value.toUpperCase() == palavraSeparada[i]){
+            console.log('mano, acho que deu certo')
+        // palavraSeparada = palavraSeparada.replace(i,"i" );
+        paragrafos[i].innerHTML = palavraSeparada[i];
+        }
     }
-    // if(digitoLetra.value == palavraSeparada[0]){
-    //     palavraSeparada = palavraSeparada.replace(0, "0");
-    //     completarLacunas = paragrafos.replace("-",digitoLetra.value);
-    //     paragrafos[0].innerHTML = digitoLetra.value;
+
+
+    // for (let i = 0; i < palavraSeparada.length; i++){
+    //     paragrafos[i].style.display="inline-block";
+    //     paragrafos[i].innerHTML=palavraSeparada[i];
     // }
+}
+
     // else if (digitoLetra.value == palavraSeparada[1]){
     //     palavraSeparada = palavraSeparada.replace(1, "0");
     //     completarLacunas = paragrafos.replace("-",digitoLetra.value);
     //     paragrafos[1].innerHTML = digitoLetra.value;
     // }
-}
+
 
 function comecar(){
     sortearPalavra();
@@ -88,11 +96,11 @@ function comecar(){
     
 }
 
-function completarLacunas(){
-    while(digitoLetra.value == paragrafos){
-        completarLacunas = paragrafos.replace("-",digitoLetra.value)
-    }
-}
+// function completarLacunas(){
+//     while(digitoLetra.value == paragrafos){
+//         completarLacunas = paragrafos.replace("-",digitoLetra.value)
+//     }
+// }
 
 // function forca(){
 //     while
@@ -100,3 +108,8 @@ function completarLacunas(){
 
 botaoComecar.onclick = comecar;
 botaoOk.onclick = ok;
+
+console.log(digitoLetra);
+
+console.log(digitoLetra.value);
+
