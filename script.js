@@ -7,17 +7,19 @@ let botaoOk = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
 
 let morto = [
-    'cabeca.png',
-    'corpo.png',
-    'braco1.png',
-    'braco2.png',
-    'perna1.png',
-    'perna2.png',
-    'olho1.png',
-    'olho2.png',
-    'boca.png',
-    'morto.png'
+    'img/cabeca.png',
+    'img/corpo.png',
+    'img/braco1.png',
+    'img/braco2.png',
+    'img/perna1.png',
+    'img/perna2.png',
+    'img/olho1.png',
+    'img/olho2.png',
+    'img/boca.png',
+    'img/morto.png'
 ]
+
+// posso fazer morto, tendo um contador morto na posiçao contador ++ 
 
 for(let i=0; i<7; i++){
     paragrafos[i].innerHTML="";
@@ -52,40 +54,16 @@ function tracos(t){
 }
 
 function ok(){
-    // let numLetra;
-    // let subs;
-    // let letra = digitoLetra.value;
-    // // let pesquisa = palavraSeparada.match(letra);
-    // numLetra = palavraSeparada.search(letra);
-    // cont=0
-    // while(cont <= palavraSeparada.length ){
-    //     subs = document.querySelector("num0").id = "num"+cony;
-    //     palavraSeparada = palavraSeparada.replace(letra, "0");
-    //     paragrafos[letra];
-    //     cont+=1;
-    // }
     for (let i in palavraSeparada){
-        console.log("foi")
         if(digitoLetra.value.toUpperCase() == palavraSeparada[i]){
-            console.log('mano, acho que deu certo')
-        // palavraSeparada = palavraSeparada.replace(i,"i" );
         paragrafos[i].innerHTML = palavraSeparada[i];
         }
+        else{
+            alert('errou');
+            for (let enforcado in morto)
+        }
     }
-
-
-    // for (let i = 0; i < palavraSeparada.length; i++){
-    //     paragrafos[i].style.display="inline-block";
-    //     paragrafos[i].innerHTML=palavraSeparada[i];
-    // }
 }
-
-    // else if (digitoLetra.value == palavraSeparada[1]){
-    //     palavraSeparada = palavraSeparada.replace(1, "0");
-    //     completarLacunas = paragrafos.replace("-",digitoLetra.value);
-    //     paragrafos[1].innerHTML = digitoLetra.value;
-    // }
-
 
 function comecar(){
     sortearPalavra();
@@ -95,16 +73,6 @@ function comecar(){
     dicaH3.innerHTML="Dica: " + palavras.dica;
     
 }
-
-// function completarLacunas(){
-//     while(digitoLetra.value == paragrafos){
-//         completarLacunas = paragrafos.replace("-",digitoLetra.value)
-//     }
-// }
-
-// function forca(){
-//     while
-// }
 
 botaoComecar.onclick = comecar;
 botaoOk.onclick = ok;

@@ -77,7 +77,9 @@ aside{
     justify-content: flex-start;
 }
 
-img{
-    width: 400px;
-    height: 400px;
+.forca{
+    background-image: url("img/forca.png");
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 350px;
 }
