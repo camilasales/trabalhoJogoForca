@@ -1,4 +1,4 @@
-let palavras = {frutas:['BANANA', 'MURICI', 'CEREJA', 'UVA'], dica: 'fruta'};
+let palavras = {frutas:['BANANA', 'MURICI','CACAU', 'CEREJA', 'UVA', 'MAÇA'], dica: 'fruta'};
 let palavraSeparada = [];
 let botaoComecar = document.querySelector("#botao_comecar");
 let dicaH3 = document.querySelector("h3");
@@ -51,19 +51,32 @@ function tracos(t){
 }
 
 function ok(){
-    let numLetra;
-    let subs;
-    let letra = digitoLetra.value;
-    // let pesquisa = palavraSeparada.match(letra);
-    numLetra = palavraSeparada.search(letra);
-    cont=0
-    while(cont <= palavraSeparada.length ){
-        subs = document.querySelector("num0").id = "num"+cony;
-        palavraSeparada = palavraSeparada.replace(letra, "0");
-        paragrafos[letra];
-        cont+=1;
-
+    // let numLetra;
+    // let subs;
+    // let letra = digitoLetra.value;
+    // // let pesquisa = palavraSeparada.match(letra);
+    // numLetra = palavraSeparada.search(letra);
+    // cont=0
+    // while(cont <= palavraSeparada.length ){
+    //     subs = document.querySelector("num0").id = "num"+cony;
+    //     palavraSeparada = palavraSeparada.replace(letra, "0");
+    //     paragrafos[letra];
+    //     cont+=1;
+    // }
+    for (let i=0; i<palavraSeparada.length; i++){
+        paragrafos[i].style.display="inline-block";
+        paragrafos[i].innerHTML=palavraSeparada[i];
     }
+    // if(digitoLetra.value == palavraSeparada[0]){
+    //     palavraSeparada = palavraSeparada.replace(0, "0");
+    //     completarLacunas = paragrafos.replace("-",digitoLetra.value);
+    //     paragrafos[0].innerHTML = digitoLetra.value;
+    // }
+    // else if (digitoLetra.value == palavraSeparada[1]){
+    //     palavraSeparada = palavraSeparada.replace(1, "0");
+    //     completarLacunas = paragrafos.replace("-",digitoLetra.value);
+    //     paragrafos[1].innerHTML = digitoLetra.value;
+    // }
 }
 
 function comecar(){
@@ -77,7 +90,7 @@ function comecar(){
 
 function completarLacunas(){
     while(digitoLetra.value == paragrafos){
-        completarLacunas = paragrafos.replace("-","")
+        completarLacunas = paragrafos.replace("-",digitoLetra.value)
     }
 }
 
