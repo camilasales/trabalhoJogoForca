@@ -6,19 +6,6 @@ let digitoLetra = document.querySelector("#digito_letra");
 let botaoOk = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
 
-let morto = [
-    'img/cabeca.png',
-    'img/corpo.png',
-    'img/braco1.png',
-    'img/braco2.png',
-    'img/perna1.png',
-    'img/perna2.png',
-    'img/olho1.png',
-    'img/olho2.png',
-    'img/boca.png',
-    'img/morto.png'
-]
-
 // posso fazer morto, tendo um contador morto na posiçao contador ++ 
 
 for(let i=0; i<7; i++){
@@ -57,10 +44,6 @@ function ok(){
     for (let i in palavraSeparada){
         if(digitoLetra.value.toUpperCase() == palavraSeparada[i]){
         paragrafos[i].innerHTML = palavraSeparada[i];
-        }
-        else{
-            alert('errou');
-            for (let enforcado in morto)
         }
     }
 }
