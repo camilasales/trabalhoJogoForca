@@ -6,6 +6,19 @@ let digitoLetra = document.querySelector("#digito_letra");
 let botao_ok = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
 
+let morto = [
+    'cabeca.png',
+    'corpo.png',
+    'braco1.png',
+    'braco2.png',
+    'perna1.png',
+    'perna2.png',
+    'olho1.png',
+    'olho2.png',
+    'boca.png',
+    'morto.png'
+]
+
 for(let i=0; i<7; i++){
     paragrafos[i].innerHTML="";
     paragrafos[i].style.display="none";
@@ -56,6 +69,15 @@ function comecar(){
     dicaH3.innerHTML="Dica: " + palavras.dica;
     
 }
+
+function completarLacunas(){
+    while(digitoLetra.value == paragrafos){
+        completarLacunas = paragrafos.replace("-","")
+    }
+}
+
+function forca(){
+    while
+}
+
 botaoComecar.onclick = comecar;
-
-
