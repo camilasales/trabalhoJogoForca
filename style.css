@@ -29,6 +29,11 @@ h1{
     grid-area: section;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.tracos p{
+    font-size: 20px;
 }
 
 input{
