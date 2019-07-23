@@ -6,8 +6,6 @@ let digitoLetra = document.querySelector("#digito_letra");
 let botaoOk = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
 
-// posso fazer morto, tendo um contador morto na posiçao contador ++ 
-
 for(let i=0; i<7; i++){
     paragrafos[i].innerHTML="";
     paragrafos[i].style.display="none";
