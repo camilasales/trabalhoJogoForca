@@ -1,10 +1,11 @@
-let palavras = {frutas:['BANANA', 'MURICI','CACAU', 'CEREJA', 'UVA', 'MAÇA'], dica: 'fruta'};
+let palavras = {frutas:['BANANA', 'MURICI','CACAU', 'CEREJA', 'UVA', 'MAÇA']};
 let palavraSeparada = [];
 let botaoComecar = document.querySelector("#botao_comecar");
 let dicaH3 = document.querySelector("h3");
 let digitoLetra = document.querySelector("#digito_letra");
 let botaoOk = document.querySelector("#botao_ok");
 let paragrafos = document.querySelectorAll(".letra");
+let forca = document.querySelector(".forca");
 
 // posso fazer morto, tendo um contador morto na posiçao contador ++ 
 
@@ -44,7 +45,50 @@ function ok(){
     for (let i in palavraSeparada){
         if(digitoLetra.value.toUpperCase() == palavraSeparada[i]){
         paragrafos[i].innerHTML = palavraSeparada[i];
+        
         }
+        else {
+        if(digitoLetra.value  != palavraSeparada[i]){
+            corpo();}
+        }
+    }
+    digitoLetra.value = '';
+}
+let contadorerros = 0;
+
+function corpo(){
+
+    contadorerros+=1;
+    if(contadorerros == 1){
+        forca.style.backgroundImage = "url(img/cabeca.png)";
+
+    }
+    if(contadorerros == 2){
+        forca.style.backgroundImage = "url(img/corpo.png)";
+        
+    }
+    if(contadorerros ==3){
+        forca.style.backgroundImage = "url(img/braco1.png)";
+        
+    }
+    if(contadorerros==4){
+        forca.style.backgroundImage = "url(img/braco2.png)";
+    }
+    if(contadorerros==5){
+        forca.style.backgroundImage = "url(img/perna1.png)";
+    }
+    if(contadorerros==6){
+        forca.style.backgroundImage = "url(img/perna2.png)";
+    }
+    if(contadorerros==7){
+        forca.style.backgroundImage = "url(img/olho1.png)";
+    }
+    if(contadorerros==8){
+        forca.style.backgroundImage = "url(img/olho2.png)";
+    }
+    if(contadorerros==9){
+        forca.style.backgroundImage = "url(img/boca.png)";
+        alert('putz, cê morreu irmão')
     }
 }
 
@@ -53,14 +97,11 @@ function comecar(){
     separarPalavra();
     let traco = palavraSeparada.length;
     tracos(traco); 
-    dicaH3.innerHTML="Dica: " + palavras.dica;
     
 }
 
 botaoComecar.onclick = comecar;
+
 botaoOk.onclick = ok;
 
-console.log(digitoLetra);
-
-console.log(digitoLetra.value);
 
